@@ -30,7 +30,7 @@
             </field>
         </record>
         <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
-        <menuitem id="perpustakaan_sekolah_menu_root" name="School Library"/>
+        <!-- <menuitem id="perpustakaan_sekolah_menu_root" name="School Library"/> -->
         
         <record id="fine_denda_act_window" model="ir.actions.act_window">
             <field name="type">ir.actions.act_window</field>
@@ -39,9 +39,9 @@
             <field name="view_mode">list,form</field>
         </record>
         <!-- This Menu Item Must have a parent -->
-        <menuitem id="transaction_menu_categ" name="Transaksi" parent="perpustakaan_sekolah_menu_root" sequence="2"/>
+        <!-- <menuitem id="transaction_menu_categ" name="Transaksi" parent="perpustakaan_sekolah_menu_root" sequence="2"/> -->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="fine_denda_menu_act" name="Denda" parent="transaction_menu_categ" action="fine_denda_act_window" sequence="3"/>
+        <!-- <menuitem id="fine_denda_menu_act" name="Denda" parent="transaction_menu_categ" action="fine_denda_act_window" sequence="3"/> -->
 
     </data>
 </odoo>

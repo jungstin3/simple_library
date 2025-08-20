@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- people.member tree view -->
+        <record id="people_member_view_tree" model="ir.ui.view">
+            <field name="name">people.member.view.tree</field>
+            <field name="model">people.member</field>
+            <field name="arch" type="xml">
+                <list>
+                    <!-- Add your fields here -->
+                    <field name="image" widget="image"/>
+                    <field name="partner_id"/>
+                    <field name="name"/>
+                    <field name="jenis_kelamin"/>
+                    <field name="peminjaman_line"/>
+                    <!-- <field name="bukulog_line"/> -->
+                    <field name="peminjaman"/>
+                </list>
+            </field>
+        </record>
+        <!-- people.member form view -->
+        <record id="people_member_view_form" model="ir.ui.view">
+            <field name="name">people.member.view.form</field>
+            <field name="model">people.member</field>
+            <field name="arch" type="xml">
+                <form string="Informasi Member">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object"
+                                    name="action_view_peminjaman_smart"
+                                    icon="fa-task"
+                                    class="oe_stat_button">
+                                <field string="Peminjaman" name="peminjaman" widget="statinfo"/>
+                            </button>
+                             <button type="object"
+                                    name="action_view_pengembalian_smart"
+                                    icon="fa-task"
+                                    class="oe_stat_button">
+                                <field string="Pengembalian" name="pengembalian" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="image" widget="image"/>
+                            <field name="partner_id"/>
+                            <field name="name"/>
+                            <field name="jenis_kelamin"/>
+                            <field name="peminjaman"/>
+                        </group>
+                        <notebook>
+                            <page string="Daftar Peminjaman">
+                                <!-- <field name="bukulog_line"> -->
+                                <field name="peminjaman_line">
+                                    <!-- <list>
+                                        <field name="buku_id"/>
+                                        <field name="peminjaman_id"/>
+                                        <field name="pengembalian_id"/>
+                                    </list> -->
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="perpustakaan_sekolah_menu_root" name="Perpustakaan Sekolah"/>  
+
+        <record id="people_member_act_window" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Member</field>
+            <field name="res_model">people.member</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="contact_menu_categ" name="Kontak" parent="perpustakaan_sekolah_menu_root" sequence="1"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="people_member_menu_act" name="Member" parent="contact_menu_categ" action="people_member_act_window" sequence="1"/>
+    </data>
+</odoo>

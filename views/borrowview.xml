@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- borrow.peminjaman tree view -->
+        <record id="borrow_peminjaman_view_tree" model="ir.ui.view">
+            <field name="name">borrow.peminjaman.view.tree</field>
+            <field name="model">borrow.peminjaman</field>
+            <field name="arch" type="xml">
+                <list>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="tanggal_pinjam"/>
+                    <field name="tanggal_kembali"/>
+                    <field name="member_id"/>
+                    <field name="no_member"/>
+                    <field name="buku_ids"/>
+                    <!-- <field name="pengembalian_line"/> -->
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+        <!-- borrow.peminjaman form view -->
+        <record id="borrow_peminjaman_view_form" model="ir.ui.view">
+            <field name="name">borrow.peminjaman.view.form</field>
+            <field name="model">borrow.peminjaman</field>
+            <field name="arch" type="xml">
+                <form string="Informasi Peminjaman">
+                    <sheet>
+                        <header>
+                            <button name="action_pinjam" type="object" string="pinjam"/>
+                            <field name="state" widget='statusbar'/>
+                        </header>
+                        <group>
+                            <field name="name"/>
+                            <field name="tanggal_pinjam"/>
+                            <field name="tanggal_kembali"/>
+                            <field name="member_id"/>
+                            <field name="no_member"/>
+                            <!-- <field name="buku_ids"/> -->
+                            <field name="state" invisible='1'/>
+                        </group>
+                        <notebook>
+                            <page string="Buku">
+                                <group>
+                                    <!-- <field name="pengembalian_line"/> -->
+                                    <field name="buku_ids"/>
+                                </group> 
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="perpustakaan_sekolah_menu_root" name="School Library"/>
+        
+        <record id="borrow_peminjaman_act_window" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Peminjaman</field>
+            <field name="res_model">borrow.peminjaman</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="transaction_menu_categ" name="Transaksi" parent="perpustakaan_sekolah_menu_root" sequence="3"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="borrow_pengembalian_menu_act" name="Peminjaman" parent="transaction_menu_categ" action="borrow_peminjaman_act_window" sequence="1"/>
+    </data>
+</odoo>

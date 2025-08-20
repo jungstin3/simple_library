@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- fine.denda tree view -->
+        <record id="fine_denda_view_tree" model="ir.ui.view">
+            <field name="name">fine.denda.view.tree</field>
+            <field name="model">fine.denda</field>
+            <field name="arch" type="xml">
+                <list>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="jumlah"/>
+                </list>
+            </field>
+        </record>
+        <!-- fine.denda form view -->
+        <record id="fine_denda_view_form" model="ir.ui.view">
+            <field name="name">fine.denda.view.form</field>
+            <field name="model">fine.denda</field>
+            <field name="arch" type="xml">
+                <form string="Informasi Denda">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <field name="jumlah"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="perpustakaan_sekolah_menu_root" name="School Library"/>
+        
+        <record id="fine_denda_act_window" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Informasi Denda</field>
+            <field name="res_model">fine.denda</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="transaction_menu_categ" name="Transaksi" parent="perpustakaan_sekolah_menu_root" sequence="2"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="fine_denda_menu_act" name="Denda" parent="transaction_menu_categ" action="fine_denda_act_window" sequence="3"/>
+
+    </data>
+</odoo>

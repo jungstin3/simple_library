@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="pengembalian_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div t-attf-style=
+                    "background-colour: #ffeebf;
+                        height:100%;font-family:Arial, Helvetica, sans-serif; margin:0px; padding:0px;">
+                    <!-- <img t-attf-src="data:image/*;base64,{{doc.get_card_background()}}" style="width:100px;height:80px;" /> -->
+                    <table style="width:100%;height:358px;">
+                        <tr style="height:37px">
+                            <th colspan="2" style="color:#1d2127;font-size:45px;vertical-align:top;text-align:center;">
+                                Kartu Pengembalian Member
+                                <br>
+                                    <span style="font-size:30px;">
+                                    Pengembalian: <t t-esc="doc.name"/><br/>
+                                    </span>
+                                </br>
+                            </th>
+                        </tr>
+                        <tr style="height:auto">
+                            <!-- <td style="text-align:center;width:32%">
+                                <img t-attf-src="data:image/png;base64,{{doc.image}}"
+                                    style="width:120px;border:2px solid white" />
+                            </td> -->
+                            <td style="width:71%;vertical-align:top;padding-top:45px;" rowspan="2">
+                                <p style="font-size:35px;font-spacing:0.5px;line-height:1.3; text-align:justify;padding-left:30px;">
+                                    <strong>ID Pengembalian:</strong> <t t-esc="doc.name"/><br/>
+                                    <strong>ID Member:</strong> <t t-esc="doc.no_member"/><br/>
+                                    <strong>ID Peminjaman:</strong> <t t-esc="doc.peminjaman_id.name"/><br/>
+                                    <strong>Nama :</strong> <t t-esc="doc.member_id.partner_id.name"/><br/>
+                                    <strong>Tanggal Peminjaman :</strong> <t t-esc="doc.tanggal_pinjam"/><br/>
+                                    <strong>Batas Tanggal Pengembalian :</strong> <t t-esc="doc.tanggal_kembali"/><br/>
+                                    <strong>Tanggal Pengembalian Sekarang:</strong> <t t-esc="doc.tanggal_kembali_sekarang"/><br/>
+                                    <table class="table table-sm o_main_table" style="width: 100%; border-collapse: collapse; font-size:30px" border="1">
+                                        <thead>
+                                            <tr>
+                                                <span style="font-size:30px;">
+                                                    <th style="padding: 8px;">Judul Buku</th>
+                                                    <th style="padding: 8px;">Penulis</th>
+                                                    <th style="padding: 8px;">Tanggal Terbit</th>
+                                                </span>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <span style="font-size:25px;">
+                                                    <td style="padding: 8px; text-align: center;"><t t-esc="doc.pengembalian_buku_ids.name"/></td>
+                                                    <td style="padding: 8px; text-align: center;"><t t-esc="doc.pengembalian_buku_ids.buku_ids.penulis"/></td>
+                                                    <td style="padding: 8px; text-align: center;"><t t-esc="doc.pengembalian_buku_ids.buku_ids.tanggal_terbit"/></td>
+                                                </span>
+                                           </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- Address : <t t-esc="doc.street"/><br/>
+                                    Birth : <t t-esc="doc.tgl_lahir.strftime('%d %B, %Y')" /> -->
+                                </p>
+                            </td>
+                        </tr>
+                        <!-- <tr style="height:80px">
+                            <td style="text-align:center;">
+                                <img t-attf-src="data:iamge/png;base64,{{doc.get_qrcode()}}" style="height:50px" />
+                            </td>
+                        </tr> -->
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
+
+
+
+
+
+
+<!-- 
+
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="library_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div t-attf-style="
+                    background-color: #ffeebf;
+                    width: 85.6mm;
+                    height: 54mm;
+                    font-family: Arial, Helvetica, sans-serif;
+                    margin: 10px auto;
+                    padding: 0;
+                    border-radius: 6px;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                    border: 1px solid #e0c97f;
+                    overflow: hidden;
+                ">
+                    <table style="width:100%; height:100%; border-collapse:collapse;">
+                        <tr>
+                            <th colspan="2" style="
+                                color: #1d2127;
+                                font-size: 14px;
+                                vertical-align: top;
+                                text-align: right;
+                                padding: 8px 10px 0 0;
+                                letter-spacing: 1px;
+                                font-weight: bold;
+                                border-bottom: 1px solid #e0c97f;
+                            ">
+                                Library Member Card
+                            </th>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center; width:32%; vertical-align:top; padding-top:8px;">
+                                <img t-attf-src="data:image/png;base64,{{doc.image}}"
+                                    style="width:32mm; height:32mm; border-radius:4mm; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,0.10);" />
+                            </td>
+                            <td style="width:68%; vertical-align:top; padding:10px 0 0 8px;">
+                                <div style="color:#3f4249; font-size:10pt; line-height:1.3;">
+                                    <strong>ID:</strong> <span><t t-esc="doc.name"/></span><br/>
+                                    <strong>Name:</strong> <span><t t-esc="doc.partner_id.name"/></span><br/>
+                                    <strong>Gender:</strong> <span><t t-esc="'Female' if doc.jenis_kelamin == 'perempuan' else 'Male'"/></span><br/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo> -->

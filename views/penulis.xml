@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <data> -->
+        <!--penulis tree view -->
+        <record id="penulis_view_tree" model="ir.ui.view">
+            <field name="name">penulis.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <list>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="born_date"/>
+                    <field name="death_date"/>
+                    <!-- <field name="alamat"/> -->
+                    <!-- <field name="telepon"/> -->
+                    <!-- <field name="email"/> -->
+                    <!-- <field name="language"/> -->
+                </list>
+            </field>
+        </record>
+
+        <!-- penulis form view -->
+        <record id="penulis_view_form" model="ir.ui.view">
+            <field name="name">penulis.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='phone']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='function']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='website']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='category_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='street']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='street2']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='zip']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='street']" position="after">
+                    <group>
+                        <field name="born_date"/>
+                        <field name="death_date"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_penulis" model="ir.actions.act_window">
+            <field name="name">Penulis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,list,form</field>
+            <field name="domain">[('is_penulis', '=', True)]</field>
+            <field name="context">{"default_is_penulis": True}</field>
+            <field name="view_id" ref="penulis_view_tree"/>    
+        </record>
+        <!-- <record id="action_view_tree_penulis" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="penulis_view_tree"/>
+            <field name="res_model">res.partner</field>
+            <field name="context">{'default_is_penulis': True}</field>
+
+        </record> -->
+
+        <menuitem id="perpustakaan_sekolah_menu_root" name="School Library"/>
+        
+        <!-- <record id="res_partner_act_window" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Informasi Penulis</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record> -->
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="contact_menu_categ" name="Kontak" parent="perpustakaan_sekolah_menu_root" sequence="1"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="penulis_menu_act" name="Informasi Penulis" parent="contact_menu_categ" action="action_penulis" sequence="4"/>
+    <!-- </data> -->
+</odoo>
+
+
+
+
+
+
+<!-- <record id="penulis_view_form" model="ir.ui.view">
+            <field name="name">penulis.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet> 
+                        <group>
+                            <field name="name"/>
+                            <xpath expr="//field[@name='function']" position="attributes">
+                                <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='website']" position="attributes">
+                                <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='category_id']" position="attributes">
+                                <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='street']" position="attributes">
+                                <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='street2']" position="attributes">
+                                <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='zip']" position="attributes">
+                                <attribute name="invisible">1</attribute>
+                            </xpath>
+                            <xpath expr="//field[@name='phone']" position="after">
+                                <field name="born_date"/>
+                                <field name="death_date"/>
+                            </xpath>
+                            Add your fields here 
+                            <field name="born_date"/>
+                            <field name="death_date"/>
+                            <field name="alamat"/> 
+                            <field name="telepon"/> 
+                            <field name="email"/> 
+                            <field name="language"/>            
+                        </group> 
+                    </sheet> 
+                </form> 
+            </field>
+        </record> -->

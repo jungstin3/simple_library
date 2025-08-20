@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- giveback.pengembalian tree view -->
+        <record id="giveback_pengembalian_view_tree" model="ir.ui.view">
+            <field name="name">giveback.pengembalian.view.tree</field>
+            <field name="model">giveback.pengembalian</field>
+            <field name="arch" type="xml">
+                <list>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <!-- <field name="status"/> -->
+                    <!-- <field name="buku_ids"/> -->
+                    <field name="tanggal_kembali_sekarang"/>
+                    <field name="peminjaman_id"/>
+                    <!-- <field name="peminjaman_buku_ids"/> -->
+                    <field name="pengembalian_buku_ids"/>
+                    <field name="tanggal_pinjam"/>
+                    <field name="tanggal_kembali"/>
+                    <field name="member_id"/>
+                    <field name="no_member"/>
+                    <field name="denda"/>
+                </list>
+            </field>
+        </record>
+        <!-- giveback.pengembalian form view -->
+        <record id="giveback_pengembalian_view_form" model="ir.ui.view">
+            <field name="name">giveback.pengembalian.view.form</field>
+            <field name="model">giveback.pengembalian</field>
+            <field name="arch" type="xml">
+                <form string="Informasi Pengembalian">
+                    <sheet>
+                        <header>
+                            <button name="action_kembalikan" type="object" string="Kembalikan"/>
+                            <field name="state" widget="statusbar"/>
+                        </header>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="name"/>
+                            <!-- <field name="status"/> -->
+                            <!-- <field name="buku_ids"/> -->
+                            <field name="tanggal_kembali_sekarang"/>
+                            <field name="peminjaman_id"/>
+                            <!-- <field name="peminjaman_buku_ids"/> -->
+                            <field name="pengembalian_buku_ids"/>
+                            <field name="tanggal_pinjam"/>
+                            <field name="tanggal_kembali"/>
+                            <field name="member_id"/>
+                            <field name="no_member"/>
+                            <field name="denda"/>
+                            <field name="state" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="perpustakaan_sekolah_menu_root" name="School Library"/>
+        
+        <record id="giveback_pengembalian_act_window" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Pengembalian</field>
+            <field name="res_model">giveback.pengembalian</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="transaction_menu_categ" name="Transaksi" parent="perpustakaan_sekolah_menu_root" sequence="3"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="giveback_pengembalian_menu_act" name="Pengembalian" parent="transaction_menu_categ" action="giveback_pengembalian_act_window" sequence="2"/>
+    </data>
+</odoo>

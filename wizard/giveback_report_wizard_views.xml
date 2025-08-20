@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- View Form Wizard -->
+        <record id="giveback_report_wizard_views" model="ir.ui.view">
+            <field name="name">giveback.report.wizard.form</field>
+            <field name="model">giveback.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Giveback Report Wizard">
+                    <group>
+                        <field name="member_ids" widget="many2many_tags"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <footer>
+                        <button string="Print" name="print_report_wizard" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <menuitem id="perpustakaan_sekolah_menu_root" name="School Library"/>
+        
+        <menuitem id="wizard_menu_categ" name="Wizard" parent="perpustakaan_sekolah_menu_root" sequence="4"/>
+        <menuitem id="giveback_report_wizard_actions_menu_act" name="Wizard Action Pengembalian" parent="wizard_menu_categ" action="giveback_report_wizard_actions" sequence="2"/>
+    </data>
+</odoo>

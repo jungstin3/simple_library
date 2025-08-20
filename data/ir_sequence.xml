@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo> 
+    <data noupdate="1">        
+        <record id="sequence_borrow_peminjaman" model="ir.sequence">
+            <field name="name">Peminjaman</field>
+            <field name="code">borrow.peminjaman</field>
+            <field name="prefix">PM/%(month)s-%(year)s/</field>
+            <field name="padding">3</field>
+        </record>
+        <record id="sequence_giveback_pengembalian" model="ir.sequence">
+            <field name="name">Pengembalian</field>
+            <field name="code">giveback.pengembalian</field>
+            <field name="prefix">KM/%(month)s-%(year)s/</field>
+            <field name="padding">3</field>
+        </record>
+        <record id="sequence_people" model="ir.sequence">
+            <field name="name">Member</field>
+            <field name="code">people.member</field>
+            <field name="prefix">MB/%(month)s-%(year)s/</field>
+            <field name="padding">3</field>
+        </record>
+    </data>
+</odoo>
+<!-- peminjaman: PM/08-2025/001 -->
+<!-- pengembalian: KM/08-2025/001 -->
+<!-- member: MB/08-2025/001 -->

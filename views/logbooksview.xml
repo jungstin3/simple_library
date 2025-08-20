@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- logbooks.bukulog tree view -->
+        <record id="logbooks_bukulog_view_tree" model="ir.ui.view">
+            <field name="name">logbooks.bukulog.view.tree</field>
+            <field name="model">logbooks.bukulog</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="buku_id"/>
+                    <field name="member_id"/>
+                    <field name="pengembalian_id"/>
+                    <field name="peminjaman_id"/>
+                </list>
+            </field>
+        </record> 
+
+
+        <!-- logbooks.bukulog form view -->
+        <record id="logbooks_bukulog_view_form" model="ir.ui.view">
+            <field name="name">logbooks.bukulog.view.form</field>
+            <field name="model">logbooks.bukulog</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="buku_id"/>
+                            <field name="member_id"/>
+                            <field name="pengembalian_id"/>
+                            <field name="peminjaman_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+        <menuitem id="perpustakaan_sekolah_menu_root" name="School Library"/>
+        
+        <record id="logbooks_bukulog_act_window" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Daftar Buku</field>
+            <field name="res_model">logbooks.bukulog</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="books_menu_categ" name="Mengenai Buku" parent="perpustakaan_sekolah_menu_root" sequence="2"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="logbooks_bukulog_menu_act" name="Daftar Buku" parent="books_menu_categ" action="logbooks_bukulog_act_window" sequence="2"/>
+        
+        
+    </data>
+</odoo>

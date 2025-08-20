@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="library_report_action" model="ir.actions.report">
+        <field name="name">Member Card</field>
+        <field name="model">people.member</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="paperformat_id" ref="simple_library.library_report_paperformat"/>
+        <field name="report_name">simple_library.library_report_template</field>
+        <field name="report_file">simple_library.reports.library_report_action</field>
+        <field name="print_report_name">'MB/%s' % object.name</field>
+        <field name="paperformat_id" ref="simple_library.library_report_paperformat"/>
+        <field name="binding_model_id" ref="simple_library.model_people_member"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

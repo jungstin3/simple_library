@@ -41,12 +41,12 @@
     
         <!-- PENERBIT MENU -->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="penerbit_menu_act" name="Informasi Penerbit" parent="contact_menu_categ" action="action_penerbit" sequence="3"/>
+        <menuitem id="res_partner_penerbit_menu_act" name="Informasi Penerbit" parent="contact_menu_categ" action="penerbit_act_window" sequence="3"/>
 
 
         <!-- PENULIS MENU -->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="penulis_menu_act" name="Informasi Penulis" parent="contact_menu_categ" action="action_penulis" sequence="4"/>
+        <menuitem id="res_partner_penulis_menu_act" name="Informasi Penulis" parent="contact_menu_categ" action="penulis_act_window" sequence="4"/>
     
     
         <!-- MEMBER MENU -->

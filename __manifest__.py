@@ -48,7 +48,6 @@ Long description of module's purpose
         'views/contactview.xml',
         'views/penulis.xml',
         'views/penerbit.xml',
-        # 'views/menu.xml',
         #wizard
         'wizard/borrow_report_wizard_views.xml',
         'wizard/borrow_report_wizard_actions.xml',
@@ -56,6 +55,8 @@ Long description of module's purpose
         'wizard/giveback_report_wizard_views.xml',
         'wizard/giveback_report_wizard_actions.xml',
         'wizard/balikin.xml',
+        #menu
+        'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

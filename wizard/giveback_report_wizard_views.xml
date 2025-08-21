@@ -19,9 +19,9 @@
                 </form>
             </field>
         </record>
-         <menuitem id="perpustakaan_sekolah_menu_root" name="School Library"/>
+        <!-- <menuitem id="perpustakaan_sekolah_menu_root" name="School Library"/>
         
         <menuitem id="wizard_menu_categ" name="Wizard" parent="perpustakaan_sekolah_menu_root" sequence="4"/>
-        <menuitem id="giveback_report_wizard_actions_menu_act" name="Wizard Action Pengembalian" parent="wizard_menu_categ" action="giveback_report_wizard_actions" sequence="2"/>
+        <menuitem id="giveback_report_wizard_actions_menu_act" name="Wizard Action Pengembalian" parent="wizard_menu_categ" action="giveback_report_wizard_actions" sequence="2"/> -->
     </data>
 </odoo>

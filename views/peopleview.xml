@@ -64,7 +64,7 @@
             </field>
         </record>
         <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
-        <menuitem id="perpustakaan_sekolah_menu_root" name="Perpustakaan Sekolah"/>  
+        <!-- <menuitem id="perpustakaan_sekolah_menu_root" name="Perpustakaan Sekolah"/>   -->
 
         <record id="people_member_act_window" model="ir.actions.act_window">
             <field name="type">ir.actions.act_window</field>
@@ -74,8 +74,8 @@
         </record>
 
         <!-- This Menu Item Must have a parent -->
-        <menuitem id="contact_menu_categ" name="Kontak" parent="perpustakaan_sekolah_menu_root" sequence="1"/>
+        <!-- <menuitem id="contact_menu_categ" name="Kontak" parent="perpustakaan_sekolah_menu_root" sequence="1"/> -->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="people_member_menu_act" name="Member" parent="contact_menu_categ" action="people_member_act_window" sequence="1"/>
+        <!-- <menuitem id="people_member_menu_act" name="Member" parent="contact_menu_categ" action="people_member_act_window" sequence="1"/> -->
     </data>
 </odoo>

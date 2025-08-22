@@ -24,6 +24,8 @@ Long description of module's purpose
     'data': [
         # data
         'data/ir_sequence.xml',
+        #security
+        'security/security.xml',
         'security/ir.model.access.csv',
         #reports
         'reports/peminjaman_report_excel_action.xml',

@@ -14,54 +14,54 @@
         <!-- This Menu Item Must have a parent -->
         <menuitem id="transaction_menu_categ" name="Transaksi" parent="perpustakaan_sekolah_menu_root" sequence="3"/>
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="borrow_pengembalian_menu_act" name="Peminjaman" parent="transaction_menu_categ" action="borrow_peminjaman_act_window" sequence="1"/>
+        <menuitem id="borrow_pengembalian_menu_act" name="Peminjaman" parent="transaction_menu_categ" action="borrow_peminjaman_act_window" groups="simple_library.group_sp_user" sequence="1"/>
     
     
         <!-- CONTACT MENU -->
         <!-- This Menu Item Must have a parent -->
         <menuitem id="contact_menu_categ" name="Kontak" parent="perpustakaan_sekolah_menu_root" sequence="1"/>
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="res_partner_menu_act" name="Informasi Kontak" parent="contact_menu_categ" action="res_partner_act_window" sequence="2"/>
+        <menuitem id="res_partner_menu_act" name="Informasi Kontak" parent="contact_menu_categ" action="res_partner_act_window" groups="simple_library.group_sp_admin" sequence="2"/>
     
         
         <!-- FINE MENU -->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="fine_denda_menu_act" name="Denda" parent="transaction_menu_categ" action="fine_denda_act_window" sequence="3"/>
+        <menuitem id="fine_denda_menu_act" name="Denda" parent="transaction_menu_categ" action="fine_denda_act_window" groups="simple_library.group_sp_admin" sequence="3"/>
     
     
         <!-- GIVEBACK MENU -->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="giveback_pengembalian_menu_act" name="Pengembalian" parent="transaction_menu_categ" action="giveback_pengembalian_act_window" sequence="2"/>
+        <menuitem id="giveback_pengembalian_menu_act" name="Pengembalian" parent="transaction_menu_categ" action="giveback_pengembalian_act_window" groups="simple_library.group_sp_user" sequence="2"/>
     
     
         <!-- LOGBOOKS MENU -->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="logbooks_bukulog_menu_act" name="Daftar Buku" parent="books_menu_categ" action="logbooks_bukulog_act_window" sequence="2"/>
+        <menuitem id="logbooks_bukulog_menu_act" name="Daftar Buku" parent="books_menu_categ" action="logbooks_bukulog_act_window" groups="simple_library.group_sp_admin" sequence="2"/>
     
     
         <!-- PENERBIT MENU -->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="res_partner_penerbit_menu_act" name="Informasi Penerbit" parent="contact_menu_categ" action="penerbit_act_window" sequence="3"/>
+        <menuitem id="res_partner_penerbit_menu_act" name="Informasi Penerbit" parent="contact_menu_categ" action="penerbit_act_window" groups="simple_library.group_sp_admin" sequence="3"/>
 
 
         <!-- PENULIS MENU -->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="res_partner_penulis_menu_act" name="Informasi Penulis" parent="contact_menu_categ" action="penulis_act_window" sequence="4"/>
+        <menuitem id="res_partner_penulis_menu_act" name="Informasi Penulis" parent="contact_menu_categ" action="penulis_act_window" groups="simple_library.group_sp_admin" sequence="4"/>
     
     
         <!-- MEMBER MENU -->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="people_member_menu_act" name="Member" parent="contact_menu_categ" action="people_member_act_window" sequence="1"/>
+        <menuitem id="people_member_menu_act" name="Member" parent="contact_menu_categ" action="people_member_act_window" groups="simple_library.group_sp_admin" sequence="1"/>
     
     
     
         <!-- BORROW WIZARD MENU -->
         <menuitem id="wizard_menu_categ" name="Wizard" parent="perpustakaan_sekolah_menu_root" sequence="4"/>
-        <menuitem id="borrow_report_wizard_actions_menu_act" name="Wizard Action Peminjaman" parent="wizard_menu_categ" action="borrow_report_wizard_actions" sequence="1"/>
+        <menuitem id="borrow_report_wizard_actions_menu_act" name="Wizard Action Peminjaman" parent="wizard_menu_categ" action="borrow_report_wizard_actions" groups="simple_library.group_sp_user" sequence="1"/>
 
         
         <!-- GIVEBACK WIZARD MENU -->
-        <menuitem id="giveback_report_wizard_actions_menu_act" name="Wizard Action Pengembalian" parent="wizard_menu_categ" action="giveback_report_wizard_actions" sequence="2"/>
+        <menuitem id="giveback_report_wizard_actions_menu_act" name="Wizard Action Pengembalian" parent="wizard_menu_categ" action="giveback_report_wizard_actions" groups="simple_library.group_sp_user" sequence="2"/>
     </data>
     
 </odoo>

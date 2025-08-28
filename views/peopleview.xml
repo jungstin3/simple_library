@@ -10,8 +10,9 @@
                     <!-- Add your fields here -->
                     <field name="image" widget="image"/>
                     <field name="partner_id"/>
-                    <field name="name"/>
+                    <field name="id_member"/>
                     <field name="jenis_kelamin"/>
+                    <field name="street" string='Alamat'/>
                     <field name="peminjaman_line"/>
                     <!-- <field name="bukulog_line"/> -->
                     <field name="peminjaman"/>
@@ -43,14 +44,15 @@
                             <!-- Add your fields here -->
                             <field name="image" widget="image"/>
                             <field name="partner_id"/>
-                            <field name="name"/>
+                            <field name="id_member"/>
                             <field name="jenis_kelamin"/>
+                            <field name="street" string='Alamat'/>
                             <field name="peminjaman"/>
                         </group>
                         <notebook>
                             <page string="Daftar Peminjaman">
                                 <!-- <field name="bukulog_line"> -->
-                                <field name="peminjaman_line">
+                                <field name="peminjaman_line" readonly="1">
                                     <!-- <list>
                                         <field name="buku_id"/>
                                         <field name="peminjaman_id"/>
@@ -70,7 +72,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="name">Member</field>
             <field name="res_model">people.member</field>
-            <field name="view_mode">list,form</field>
+            <field name="view_mode">list,kanban,form</field>
         </record>
 
         <!-- This Menu Item Must have a parent -->

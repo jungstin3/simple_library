@@ -27,7 +27,7 @@
                 <form string="Informasi Peminjaman">
                     <sheet>
                         <header>
-                            <button name="action_pinjam" type="object" string="pinjam"/>
+                            <button name="action_pinjam" type="object" string="pinjam" invisible= "state != 'draft'"/>
                             <field name="state" widget='statusbar'/>
                         </header>
                         <group>

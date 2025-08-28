@@ -7,7 +7,7 @@ class Member(models.Model):
 
     image = fields.Binary(string='Foto')
     partner_id = fields.Many2one('res.partner', string='Nama', required=True, ondelete='restrict')
-    name = fields.Char(string='Nomor Anggota', required=True, readonly=True, default='New')
+    id_member = fields.Char(string='Nomor Anggota', required=True, readonly=True, default='New')
     jenis_kelamin = fields.Selection([('laki_laki', 'Laki-laki'), ('perempuan', 'Perempuan')], string='Jenis Kelamin')
     peminjaman_line = fields.One2many('borrow.peminjaman', 'member_id', string='Daftar Peminjaman')
     peminjaman = fields.Integer(string='Jumlah Peminjaman', compute='_compute_peminjaman', store=True)
@@ -31,8 +31,8 @@ class Member(models.Model):
     
     @api.model
     def create(self, vals):
-        if vals.get('name', 'New') == 'New':
-            vals['name'] = self.env['ir.sequence'].next_by_code('people.member') or 'New'
+        if vals.get('id_member', 'New') == 'New':
+            vals['id_member'] = self.env['ir.sequence'].next_by_code('people.member') or 'New'
             return super(Member, self).create(vals)
         
     def action_view_peminjaman_smart(self):

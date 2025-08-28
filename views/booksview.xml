@@ -11,6 +11,7 @@
                     <field name="image" widget="image"/>
                     <field name="name"/>
                     <field name="penulis"/>
+                    <field name="penerbit" />
                     <field name="jumlah"/>
                     <field name="tanggal_terbit"/>
                     <field name="kategori"/>
@@ -30,6 +31,7 @@
                             <field name="image" widget="image"/>
                             <field name="name"/>
                             <field name="penulis"/>
+                            <field name="penerbit" />
                             <field name="jumlah"/>
                             <field name="tanggal_terbit"/>
                             <field name="kategori"/>

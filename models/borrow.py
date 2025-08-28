@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from datetime import timedelta
 
 class Peminjaman(models.Model):
     _name = 'borrow.peminjaman'
@@ -6,9 +7,9 @@ class Peminjaman(models.Model):
 
     name = fields.Char(string='No. Peminjaman', required=True, readonly=True, default='New')
     tanggal_pinjam = fields.Date(string='Tanggal Pinjam', default=fields.Date.today)
-    tanggal_kembali = fields.Date(string='Tanggal Kembali')
+    tanggal_kembali = fields.Date(string='Tanggal Kembali', compute='_compute_balik', store=True)
     member_id = fields.Many2one('people.member', string='Member', required=True)
-    no_member = fields.Char(string='No Member', related='member_id.partner_id.name', store=True)
+    no_member = fields.Char(string='No Member', related='member_id.id_member', store=True)
     buku_ids = fields.Many2many('books.buku', string='Buku Dipinjam')
     pengembalian_line = fields.One2many('giveback.pengembalian', 'peminjaman_id', string='Pengembalian')
     state = fields.Selection([
@@ -46,7 +47,15 @@ class Peminjaman(models.Model):
             vals['name'] = self.env['ir.sequence'].next_by_code('borrow.peminjaman') or 'New'
 
         return super(Peminjaman, self).create(vals)
-    
+            
+    @api.depends('tanggal_pinjam')
+    def _compute_balik(self):
+        for record in self:
+            if record.tanggal_pinjam:
+                record.tanggal_kembali = record.tanggal_pinjam + timedelta(days=7)
+            else:
+                record.tanggal_kembali = False
+                
     # def action_print_report(self):
     #     peminjaman_data = []
     #     for record in self:

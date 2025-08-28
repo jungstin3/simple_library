@@ -6,7 +6,8 @@ class Buku(models.Model):
 
     image = fields.Binary(string='Foto')
     name = fields.Char(string='Judul Buku', required=True)
-    penulis = fields.Char(string='Penulis')
+    penulis = fields.Many2many('res.partner', string='Penulis')
+    penerbit = fields.Many2one('res.partner', string='Penerbit', required=True, ondelete='restrict')
     jumlah = fields.Integer(string='Stok Buku', default=1)
     tanggal_terbit = fields.Date(string='Tanggal Terbit')
     kategori = fields.Selection([
@@ -14,3 +15,4 @@ class Buku(models.Model):
         ('non-fiksi', 'Non-Fiksi')
     ], string='Kategori', default='fiksi')
     deskripsi = fields.Text(string='Deskripsi')
+    

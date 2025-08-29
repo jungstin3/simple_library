@@ -15,4 +15,5 @@ class Buku(models.Model):
         ('non-fiksi', 'Non-Fiksi')
     ], string='Kategori', default='fiksi')
     deskripsi = fields.Text(string='Deskripsi')
+    log_line = fields.One2many('borrow.peminjaman', 'buku_ids', string='Log Peminjaman',)
     

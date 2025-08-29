@@ -7,7 +7,7 @@ class Pengembalian(models.Model):
     hitung_buku_ids = fields.Many2many('logbooks.bukulog', string='Buku Dikembalikan')
     tanggal_kembali_sekarang = fields.Date(string='Tanggal Pengembalian', default=fields.Date.context_today)
     peminjaman_id = fields.Many2one('borrow.peminjaman', string='Peminjaman', required=True)
-    pengembalian_buku_ids = fields.Many2many('borrow.peminjaman', string='Buku Dikembalikan')
+    pengembalian_buku_ids = fields.Many2many('books.buku', string='Buku Dikembalikan', compute='_compute_buku_dikembalikan', store=True)
     tanggal_pinjam = fields.Date(related='peminjaman_id.tanggal_pinjam', store=True)
     tanggal_kembali = fields.Date(related='peminjaman_id.tanggal_kembali', store=True)
     member_id = fields.Many2one(related='peminjaman_id.member_id', store=True)
@@ -45,7 +45,10 @@ class Pengembalian(models.Model):
 
         return super(Pengembalian, self).create(vals)
 
-  
+    @api.depends('peminjaman_id', 'peminjaman_id.buku_ids')
+    def _compute_buku_dikembalikan(self):
+        for record in self:
+            record.pengembalian_buku_ids = record.peminjaman_id.buku_ids
         
     # def action_kembalikan(self):
     #     for record in self.pengembalian_buku_ids:

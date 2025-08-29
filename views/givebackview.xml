@@ -31,7 +31,7 @@
                 <form string="Informasi Pengembalian">
                     <sheet>
                         <header>
-                            <button name="action_kembalikan" type="object" string="Kembalikan"/>
+                            <button name="action_kembalikan" type="object" string="Kembalikan" invisible= "state != 'draft'"/>
                             <field name="state" widget="statusbar"/>
                         </header>
                         <group>
